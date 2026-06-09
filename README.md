@@ -1,22 +1,45 @@
 # 🚀 TaskFlow RBAC System
 
-<p align="center">
-  <b>A Full-Stack Role-Based Task Management System built with Node.js, Express.js, PostgreSQL, Prisma ORM, JWT Authentication, and Next.js.</b>
-</p>
+> **A Production-Ready Full Stack Role-Based Task Management System built with Next.js, Node.js, Express.js, PostgreSQL, Prisma ORM, JWT Authentication, and Docker.**
 
-<p align="center">
-  Secure • Scalable • Responsive • Modern UI • Production Ready
-</p>
+Secure • Scalable • Responsive • Modern UI • Production Ready
+
+---
+
+# 🌐 Live Demo
+
+### 🔗 Frontend
+
+https://taskflow-rbac-system-ten.vercel.app
+
+### 🔗 Backend API
+
+https://YOUR-BACKEND-URL.onrender.com
+
+### 🔗 Swagger Documentation
+
+https://YOUR-BACKEND-URL.onrender.com/api-docs
 
 ---
 
 # 📖 Overview
 
-**TaskFlow RBAC System** is a production-ready **Full Stack Task Management Application** implementing **Role-Based Access Control (RBAC)**.
+TaskFlow RBAC System is a **production-ready Full Stack Task Management Application** implementing **Role-Based Access Control (RBAC)**.
 
-The project demonstrates industry-standard backend and frontend development practices including authentication, authorization, secure REST APIs, database design, responsive UI development, and scalable architecture.
+The project demonstrates industry-standard backend and frontend development practices including:
 
-The application allows users to manage their personal tasks while administrators can manage all users and tasks across the platform.
+* JWT Authentication
+* Role-Based Authorization
+* Secure REST APIs
+* PostgreSQL Database Design
+* Prisma ORM
+* Responsive Next.js Frontend
+* Pagination & Filtering
+* Dockerized Database
+* Swagger Documentation
+* Scalable Layered Architecture
+
+Users can manage their own tasks while administrators can manage every task and user across the system.
 
 ---
 
@@ -27,14 +50,14 @@ The application allows users to manage their personal tasks while administrators
 * User Registration
 * User Login
 * JWT Authentication
-* Password Hashing (bcrypt)
+* Password Hashing (bcryptjs)
 * Protected Routes
 * Current User API
-* Logout
+* Logout Functionality
 
 ---
 
-## 👥 Role Based Access Control (RBAC)
+## 👥 Role-Based Access Control (RBAC)
 
 ### USER
 
@@ -54,7 +77,7 @@ The application allows users to manage their personal tasks while administrators
 ## 📝 Task Management
 
 * Create Task
-* Get All Tasks
+* View Tasks
 * Get Task By ID
 * Update Task
 * Delete Task
@@ -63,19 +86,19 @@ The application allows users to manage their personal tasks while administrators
 
 ## 📊 Dashboard Features
 
-* Task Statistics
 * Total Tasks Card
-* Pending Tasks
-* In Progress Tasks
-* Completed Tasks
+* Pending Tasks Card
+* In Progress Tasks Card
+* Completed Tasks Card
 * Search Tasks
-* Status Filtering
+* Status Filter
 * Pagination
 * Created Date
 * Responsive Table
-* Loading Spinner
 * Empty State UI
+* Loading Spinner
 * Dark Mode
+* Responsive Design
 
 ---
 
@@ -83,8 +106,8 @@ The application allows users to manage their personal tasks while administrators
 
 ## Frontend
 
-* Next.js 15 App Router
-* React
+* Next.js 16 (App Router)
+* React.js
 * JavaScript
 * Tailwind CSS
 * Axios
@@ -110,133 +133,111 @@ The application allows users to manage their personal tasks while administrators
 
 # 🏗 System Architecture
 
-```text
-                        Browser
+```
+                    Browser
 
-                           │
+                       │
 
-                           ▼
+                       ▼
 
-                 Next.js Frontend (React)
+            Next.js Frontend (React)
 
-                           │
+                       │
 
-                    Axios HTTP Client
+                Axios HTTP Client
 
-                           │
+                       │
 
-                           ▼
+                       ▼
 
-                 Express REST API Server
+             Express REST API Server
 
-                           │
+                       │
 
-        ┌──────────────────┼──────────────────┐
+      ┌────────────────┼─────────────────┐
 
-        ▼                  ▼                  ▼
+      ▼                ▼                 ▼
 
- Authentication      Task Controller      Middleware
+ Authentication   Task Controller   Middleware
 
-        │
+                       │
 
-        ▼
+                       ▼
 
-      Services
+                    Services
 
-        │
+                       │
 
-        ▼
+                       ▼
 
-    Prisma ORM
+                  Prisma ORM
 
-        │
+                       │
 
-        ▼
+                       ▼
 
- PostgreSQL Database
+              PostgreSQL Database
 ```
 
 ---
 
 # 📂 Project Structure
 
-```text
+```
 taskflow-rbac-system/
 
 │
 
+├── assets/
+│    ├── landing.png
+│    ├── login.png
+│    ├── register.png
+│    ├── dashboard-dark.png
+│    ├── dashboard-light.png
+│    ├── create-task.png
+│    ├── edit-task.png
+│    └── swagger.png
+│
+
 ├── backend/
-
+│
 │   ├── prisma/
-
-│   │    ├── migrations/
-
-│   │    ├── schema.prisma
-
-│   │    └── seed.js
-
+│   │     ├── migrations/
+│   │     ├── schema.prisma
+│   │     └── seed.js
 │   │
-
 │   ├── src/
-
-│   │    ├── controllers/
-
-│   │    ├── routes/
-
-│   │    ├── middleware/
-
-│   │    ├── services/
-
-│   │    ├── validators/
-
-│   │    ├── config/
-
-│   │    ├── utils/
-
-│   │    ├── app.js
-
-│   │    └── server.js
-
+│   │     ├── config/
+│   │     ├── controllers/
+│   │     ├── middleware/
+│   │     ├── routes/
+│   │     ├── services/
+│   │     ├── validators/
+│   │     ├── utils/
+│   │     ├── app.js
+│   │     └── server.js
 │   │
-
 │   └── package.json
-
 │
-
 ├── frontend/
-
-│   ├── app/
-
-│   │    ├── dashboard/
-
-│   │    ├── login/
-
-│   │    ├── register/
-
-│   │    └── tasks/
-
-│   │         ├── create/
-
-│   │         └── edit/[id]/
-
-│   │
-
-│   ├── components/
-
-│   ├── context/
-
-│   ├── lib/
-
-│   ├── services/
-
-│   ├── public/
-
-│   └── package.json
-
 │
-
+│   ├── app/
+│   │     ├── dashboard/
+│   │     ├── login/
+│   │     ├── register/
+│   │     └── tasks/
+│   │           ├── create/
+│   │           └── edit/[id]/
+│   │
+│   ├── components/
+│   ├── context/
+│   ├── lib/
+│   ├── services/
+│   ├── public/
+│   └── package.json
+│
 ├── docker-compose.yml
-
+│
 └── README.md
 ```
 
@@ -259,57 +260,44 @@ taskflow-rbac-system/
 
 ## Task
 
-| Field       | Type     |
-| ----------- | -------- |
-| id          | UUID     |
-| title       | String   |
-| description | String   |
-| status      | PENDING  |
-| userId      | UUID     |
-| createdAt   | DateTime |
-| updatedAt   | DateTime |
+| Field       | Type                              |
+| ----------- | --------------------------------- |
+| id          | UUID                              |
+| title       | String                            |
+| description | String                            |
+| status      | PENDING / IN_PROGRESS / COMPLETED |
+| userId      | UUID                              |
+| createdAt   | DateTime                          |
+| updatedAt   | DateTime                          |
 
 ---
 
 # 📊 Entity Relationship Diagram
 
-```text
+```
 User
 
 ├── id
-
 ├── name
-
 ├── email
-
 ├── password
-
 ├── role
-
 └── createdAt
 
       │
 
       │ 1
 
-      │
-
       ▼
 
 Task
 
 ├── id
-
 ├── title
-
 ├── description
-
 ├── status
-
 ├── userId
-
 ├── createdAt
-
 └── updatedAt
 ```
 
@@ -317,7 +305,7 @@ Task
 
 # 🔐 Authentication Flow
 
-```text
+```
 User Login
 
       │
@@ -367,7 +355,7 @@ Access Granted
 
 # 🛡 RBAC Flow
 
-```text
+```
 Request
 
     │
@@ -390,23 +378,21 @@ Check Role
 
     │
 
- ┌──┴───────────┐
+ ┌──┴──────────┐
 
- │              │
+ ▼             ▼
 
- ▼              ▼
+ADMIN         USER
 
-ADMIN          USER
+ │             │
 
- │              │
+ │             ▼
 
- │              ▼
+ │      Check Ownership
 
- │        Check Ownership
+ │             │
 
- │              │
-
- ▼              ▼
+ ▼             ▼
 
 Access      Allow / Deny
 ```
@@ -417,7 +403,7 @@ Access      Allow / Deny
 
 ## Authentication
 
-```http
+```
 POST /api/v1/auth/register
 
 POST /api/v1/auth/login
@@ -429,7 +415,7 @@ GET /api/v1/auth/me
 
 ## Tasks
 
-```http
+```
 POST /api/v1/tasks
 
 GET /api/v1/tasks
@@ -443,17 +429,17 @@ DELETE /api/v1/tasks/:id
 
 ---
 
-## Pagination
+# 📄 Pagination
 
-```http
+```
 GET /api/v1/tasks?page=1&limit=10
 ```
 
 ---
 
-## Filtering
+# 🔍 Filtering
 
-```http
+```
 GET /api/v1/tasks?status=PENDING
 
 GET /api/v1/tasks?status=IN_PROGRESS
@@ -463,148 +449,32 @@ GET /api/v1/tasks?status=COMPLETED
 
 ---
 
-# 📖 Swagger API Documentation
+# 📖 Swagger Documentation
 
-Start backend server:
+Run Backend:
 
-```bash
+```
 npm run dev
 ```
 
 Open:
 
-```text
+```
 http://localhost:5000/api-docs
 ```
 
-Swagger provides interactive API testing for all endpoints.
-
----
-
-# 🧪 Testing
-
-Tested using:
-
-* Postman
-* Swagger UI
-* Browser Frontend
-
-## Tested Scenarios
-
-* ✅ Registration
-* ✅ Login
-* ✅ JWT Authentication
-* ✅ Protected Routes
-* ✅ RBAC
-* ✅ Create Task
-* ✅ Update Task
-* ✅ Delete Task
-* ✅ Pagination
-* ✅ Filtering
-* ✅ Dashboard
-* ✅ Search
-* ✅ Dark Mode
-
----
-
-# ⚙ Environment Variables
-
-## Backend
-
-```env
-PORT=5000
-
-DATABASE_URL=your_database_url
-
-JWT_SECRET=your_secret
-```
-
----
-
-## Frontend
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
-```
-
----
-
-# 🐳 Docker
-
-Start PostgreSQL container:
-
-```bash
-docker compose up -d
-```
-
-Stop:
-
-```bash
-docker compose down
-```
-
----
-
-# 🚀 Installation
-
-## Clone Repository
-
-```bash
-git clone https://github.com/yourusername/taskflow-rbac-system.git
-
-cd taskflow-rbac-system
-```
-
----
-
-## Backend
-
-```bash
-cd backend
-
-npm install
-
-npx prisma migrate dev
-
-npx prisma generate
-
-npm run seed
-
-npm run dev
-```
-
----
-
-## Frontend
-
-```bash
-cd frontend
-
-npm install
-
-npm run dev
-```
-
----
-
-Open:
-
-```text
-Frontend
-
-http://localhost:3000
-
-Backend
-
-http://localhost:5000
-```
+Swagger provides interactive testing for every API endpoint.
 
 ---
 
 # 📷 Screenshots
 
-```text
-screenshots/
+Create an **assets** folder and add these screenshots:
+
+```
+assets/
+
+landing.png
 
 login.png
 
@@ -621,23 +491,260 @@ edit-task.png
 swagger.png
 ```
 
+Then add:
+
+```
+## Landing Page
+
+![Landing](assets/landing.png)
+
+---
+
+## Login Page
+
+![Login](assets/login.png)
+
+---
+
+## Register Page
+
+![Register](assets/register.png)
+
+---
+
+## Dashboard (Light)
+
+![Dashboard Light](assets/dashboard-light.png)
+
+---
+
+## Dashboard (Dark)
+
+![Dashboard Dark](assets/dashboard-dark.png)
+
+---
+
+## Create Task
+
+![Create Task](assets/create-task.png)
+
+---
+
+## Edit Task
+
+![Edit Task](assets/edit-task.png)
+
+---
+
+## Swagger
+
+![Swagger](assets/swagger.png)
+```
+
+---
+
+# 🧪 Testing
+
+Tested using:
+
+* Postman
+* Swagger UI
+* Browser Frontend
+
+### Tested Scenarios
+
+✅ Registration
+
+✅ Login
+
+✅ JWT Authentication
+
+✅ Protected Routes
+
+✅ RBAC
+
+✅ Create Task
+
+✅ Update Task
+
+✅ Delete Task
+
+✅ Pagination
+
+✅ Filtering
+
+✅ Search
+
+✅ Dashboard
+
+✅ Dark Mode
+
+---
+
+# ⚙ Environment Variables
+
+## Backend
+
+```
+PORT=5000
+
+DATABASE_URL=your_database_url
+
+JWT_SECRET=your_secret
+```
+
+---
+
+## Frontend
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000/api/v1
+```
+
+---
+
+# 🐳 Docker
+
+Start PostgreSQL:
+
+```
+docker compose up -d
+```
+
+Stop:
+
+```
+docker compose down
+```
+
+---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```
+git clone https://github.com/Jharwal77/taskflow-rbac-system.git
+
+cd taskflow-rbac-system
+```
+
+---
+
+## Backend Setup
+
+```
+cd backend
+
+npm install
+
+npx prisma migrate dev
+
+npx prisma generate
+
+npm run seed
+
+npm run dev
+```
+
+---
+
+## Frontend Setup
+
+```
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+## Open
+
+Frontend
+
+```
+http://localhost:3000
+```
+
+Backend
+
+```
+http://localhost:5000
+```
+
+Swagger
+
+```
+http://localhost:5000/api-docs
+```
+
+---
+
+# 🚀 Deployment
+
+## Frontend
+
+Vercel
+
+```
+https://taskflow-rbac-system-ten.vercel.app
+```
+
+---
+
+## Backend
+
+Render
+
+```
+https://YOUR-BACKEND.onrender.com
+```
+
+---
+
+# 💼 Skills Demonstrated
+
+* Full Stack Development
+* Next.js App Router
+* React.js
+* Tailwind CSS
+* Node.js
+* Express.js
+* PostgreSQL
+* Prisma ORM
+* JWT Authentication
+* Role-Based Access Control (RBAC)
+* REST API Development
+* Axios Integration
+* Context API
+* React Hook Form
+* Docker
+* Swagger Documentation
+* Pagination
+* Filtering
+* Search
+* Dark Mode
+* Protected Routes
+* Responsive UI
+* Git & GitHub
+
 ---
 
 # 📈 Scalability Considerations
 
-The project follows a modular architecture and can be extended with:
-
 * Redis Cache
 * Horizontal Scaling
-* Load Balancer
-* Read Replicas
 * Connection Pooling
+* Read Replicas
+* Load Balancer
 * Microservices
 * RabbitMQ
 * Kubernetes
 * Activity Logs
 * Notification Service
-* Email Service
 
 ---
 
@@ -647,12 +754,11 @@ The project follows a modular architecture and can be extended with:
 * Refresh Token Authentication
 * Email Verification
 * Forgot Password
-* File Uploads
 * Charts & Analytics
+* File Uploads
 * Sidebar Navigation
-* Framer Motion Animations
-* SweetAlert2 Dialogs
-* Redis Caching
+* Activity Logs
+* Redis Cache
 * Unit Testing
 * Integration Testing
 * CI/CD Pipeline
@@ -667,7 +773,11 @@ Electronics & Communication Engineering Student
 
 Full Stack Developer
 
-Interested in Backend Engineering, Databases, Distributed Systems, and Scalable Web Applications.
+Interested in Backend Engineering, Databases, Distributed Systems and Scalable Web Applications.
+
+GitHub:
+
+https://github.com/Jharwal77
 
 ---
 
@@ -675,20 +785,17 @@ Interested in Backend Engineering, Databases, Distributed Systems, and Scalable 
 
 * JWT Authentication
 * Role-Based Access Control
-* Next.js 15 App Router
-* Express.js REST APIs
-* PostgreSQL Database
+* Next.js App Router
+* Express REST APIs
+* PostgreSQL
 * Prisma ORM
 * Docker Support
 * Swagger Documentation
 * Responsive Dashboard
 * Dark Mode
 * Pagination & Filtering
-* Modern UI
 * Production Ready Architecture
 
 ---
 
-<p align="center">
-⭐ If you found this project useful, consider giving it a Star on GitHub!
-</p>
+⭐ **If you found this project useful, please consider giving it a Star on GitHub!**
